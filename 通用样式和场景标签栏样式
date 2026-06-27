@@ -1,0 +1,86 @@
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #e8f5e9 0%, #e3f2fd 50%, #f3e5f5 100%);
+    min-height: 100vh;
+    color: #333;
+  }
+  .app-header {
+    background: linear-gradient(135deg, #43a047, #1b5e20);
+    padding: 20px 16px 16px;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 0 30px 30px;
+    box-shadow: 0 4px 20px rgba(27, 94, 32, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .app-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .app-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    position: relative;
+  }
+  .app-header p {
+    font-size: 14px;
+    opacity: 0.85;
+    margin-top: 6px;
+    position: relative;
+  }
+
+  /* 场景标签栏样式 */
+  .scene-tabs {
+    display: flex;
+    overflow-x: auto;
+    gap: 4px;
+    padding: 12px 16px 0;
+    max-width: 600px;
+    margin: 0 auto;
+    scrollbar-width: none;
+  }
+  .scene-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .scene-tab {
+    flex: 0 0 auto;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .scene-tab.active {
+    background: #43a047;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(67, 160, 71, 0.3);
+  }
+  .scene-tab:hover {
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 8px auto 24px;
+    padding: 0 16px;
+    position: relative;
+    z-index: 1;
+  }
