@@ -1,0 +1,66 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "校园智能问答"
+      }
+    },
+    {
+      "path": "pages/chat/chat",
+      "style": {
+        "navigationBarTitleText": "智能问答"
+      }
+    },
+    {
+      "path": "pages/writer/writer",
+      "style": {
+        "navigationBarTitleText": "文案生成"
+      }
+    },
+    {
+      "path": "pages/analysis/analysis",
+      "style": {
+        "navigationBarTitleText": "学情分析"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "校园智能问答",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#f5f5f5"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#4F7CFF",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/tabs/home.png",
+        "selectedIconPath": "static/tabs/home-active.png"
+      },
+      {
+        "pagePath": "pages/chat/chat",
+        "text": "问答",
+        "iconPath": "static/tabs/chat.png",
+        "selectedIconPath": "static/tabs/chat-active.png"
+      },
+      {
+        "pagePath": "pages/writer/writer",
+        "text": "文案",
+        "iconPath": "static/tabs/writer.png",
+        "selectedIconPath": "static/tabs/writer-active.png"
+      },
+      {
+        "pagePath": "pages/analysis/analysis",
+        "text": "分析",
+        "iconPath": "static/tabs/analysis.png",
+        "selectedIconPath": "static/tabs/analysis-active.png"
+      }
+    ]
+  }
+}
