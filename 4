@@ -1,0 +1,91 @@
+    <!-- 场景3：课程查询 -->
+    <div class="scene-container" id="scene-course">
+      <div class="card">
+        <div class="card-title"><span class="icon">📅</span> 课程查询</div>
+        <div class="date-row">
+          <input type="date" id="datePicker" />
+          <button id="queryBtn">查询</button>
+        </div>
+        <div class="course-list" id="courseList"></div>
+      </div>
+      
+    </div>
+
+    <!-- 场景4：校园生活（新增） -->
+    <div class="scene-container" id="scene-life">
+      <div class="card">
+        <div class="card-title"><span class="icon">🏡</span> 校园生活服务</div>
+        <div class="life-grid">
+          <div class="life-item" data-life="dormitory">
+            <div class="emoji">🛏️</div>
+            <div class="title">宿舍服务</div>
+          </div>
+          <div class="life-item" data-life="express">
+            <div class="emoji">📦</div>
+            <div class="title">快递中心</div>
+          </div>
+          <div class="life-item" data-life="sports">
+            <div class="emoji">🏃</div>
+            <div class="title">体育中心</div>
+          </div>
+          <div class="life-item" data-life="medical">
+            <div class="emoji">🏥</div>
+            <div class="title">校医务室</div>
+          </div>
+        </div>
+        <div class="life-detail" id="life-dormitory">
+          <h4>🛏️ 宿舍服务</h4>
+          <p>宿舍区分为清乐园，致勤楼等多个区域，4人/间，配备空调，独立卫浴、阳台。门禁时间为23:00，全天热水，电费自费，热水使用校园卡自费，周日到周四23:00-6:00断网。</p>
+        </div>
+        <div class="life-detail" style="display: none;" id="life-express">
+          <h4>📦 快递中心</h4>
+          <p>校内设立多个快递点，位于清乐园校门右侧，南校区最右侧，支持中通、圆通、顺丰等主流快递，驿站寄件营业时间9:00-21:00，可现场办理寄件，取件需凭取件码。</p>
+        </div>
+        <div class="life-detail" style="display: none;" id="life-sports">
+          <h4>🏃 体育中心</h4>
+          <p>体育馆包含篮球场、羽毛球场、乒乓球馆、健身房，全天开放。场馆无需预约。</p>
+        </div>
+        <div class="life-detail" style="display: none;" id="life-medical">
+          <h4>🏥 校医务室</h4>
+          <p>校医务室分别位于操场侧面和树人之家右侧，门诊时间8:00-18:00，提供基础医疗，凭校园卡可以享受医疗优惠，支持医保。</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <iframe
+src="https://www.coze.cn/store/agent/7654526917726634025?from=bots_card&bid=6kek82njc7012"
+style="width:100%;height:860px;border:0;border-radius:14px;display:block;"
+></iframe>
+
+  <script>
+    const weekNames = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+
+    const courseDataByWeekday = {
+      1: [
+        { session: '第3-4节', name: '女子乒乓球', teacher: '李直', room: '体育馆109(乒乓球)', weeks: '第2-17周' },
+        { session: '第6-7节', name: '数字媒体设计案例', teacher: '顾汉杰', room: 'A1-301', weeks: '第2-17周' },
+        { session: '第8节', name: '数字媒体设计案例', teacher: '顾汉杰', room: 'A1-301', weeks: '第2-17周' },
+        { session: '第10-11节', name: '珠宝鉴赏', teacher: '包绍华', room: 'B1-103', weeks: '第4-11周' },
+      ],
+      2: [
+        { session: '第1-2节', name: '3D游戏引擎', teacher: '吴凡', room: 'A4-301（第15周）/ A4-209（第2-14周）', weeks: '第2-15周' },
+      ],
+      3: [
+        { session: '第3-5节', name: '脚本策划', teacher: '顾汉杰', room: 'A2-211', weeks: '第2-17周' },
+        { session: '第6-7节', name: '大学英语拓展II', teacher: '任丹青', room: 'A2-307', weeks: '第2-17周' },
+        { session: '第10-11节', name: '花卉鉴赏', teacher: '谭苗苗', room: 'A2-510', weeks: '第4-11周' },
+      ],
+      4: [
+        { session: '第3-5节', name: '习近平新时代中国特色社会主义思想概论', teacher: '陈克达', room: 'A2-303', weeks: '第2-4周、第6-17周（停0113）' },
+        { session: '第6-7节', name: '人工智能', teacher: '胡峰俊/孙瑜亮/王培娟', room: 'A4-405', weeks: '第2-17周' },
+        { session: '第8节', name: '人工智能', teacher: '胡峰俊/孙瑜亮/王培娟', room: 'A4-405', weeks: '第2-17周' },
+      ],
+      5: [
+        { session: '第3-4节', name: '3D游戏引擎', teacher: '吴凡', room: 'B2-209', weeks: '第2-9周、第12-14周（调0533、调0606）' },
+      ],
+      6: [],
+      0: [],
+    };
