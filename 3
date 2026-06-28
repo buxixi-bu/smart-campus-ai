@@ -1,0 +1,58 @@
+<body>
+  <div class="app-header">
+    <h1>🌿 智慧树人</h1>
+    <p>浙江树人学院 · 让学习更美好</p>
+  </div>
+
+  <!-- 场景标签栏 -->
+  <div class="scene-tabs">
+    <div class="scene-tab active" data-scene="assistant">智能助手</div>
+    <div class="scene-tab" data-scene="navigation">校园导航</div>
+    <div class="scene-tab" data-scene="course">课程查询</div>
+    <div class="scene-tab" data-scene="life">校园生活</div>
+  </div>
+
+  <div class="container">
+    <!-- 场景1：智能助手 -->
+    <div class="scene-container active" id="scene-assistant">
+      
+    </div>
+
+    <!-- 场景2：校园导航 -->
+    <div class="scene-container" id="scene-navigation">
+      <div class="card">
+        <div class="card-title"><span class="icon">📍</span> 校园地点导航</div>
+        <div class="nav-grid">
+          <div class="nav-item active" data-place="library"><span class="emoji">📚</span>图书馆</div>
+          <div class="nav-item" data-place="cafeteria"><span class="emoji">🍱</span>食堂</div>
+          <div class="nav-item" data-place="teaching"><span class="emoji">🏫</span>教学楼</div>
+        </div>
+        <div class="place-detail active" id="detail-library">
+          <h3>📚 图书馆</h3>
+          <p>图书馆坐落于校园中心，距离教学楼较近，藏书超过120w册，设有自习区，学术报告厅，无需预约，刷校园卡入馆，每日6：00-22：00开放</p>
+          <div class="placeholder-img">📚</div>
+        </div>
+        <div class="place-detail" id="detail-cafeteria">
+            <h3>🍱 学生食堂</h3>
+            <p>
+                南校区树人之家三楼花园餐厅(教工餐厅晚上对学生开放) 营业时间:6:00-9:30 11:00-1:30 16:00-18:30 内容:大众快餐、轻食、小炒
+            </p>
+            <p>
+                北校区知禾餐厅
+                营业时间:6:00-22:00。
+            </p>
+            <p>
+                北校区致勤餐厅
+                营业时间:6:30-13:00; 16:30-18:30
+                内容:大众早餐、快餐
+            </p>
+            <div class="placeholder-img">🍱</div>
+        </div>
+        <div class="place-detail" id="detail-teaching">
+          <h3>🏫 教学楼</h3>
+          <p>教学楼为A1-A4，配备智慧黑板，多媒体教室居多</p>
+          <div class="placeholder-img">🏫</div>
+        </div>
+      </div>
+     
+    </div>
