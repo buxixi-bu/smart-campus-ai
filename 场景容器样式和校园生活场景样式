@@ -1,0 +1,314 @@
+  /* 场景容器样式 */
+  .scene-container {
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+  .scene-container.active {
+    display: block;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 20px 18px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+  .card-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: #1b5e20;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-title .icon {
+    font-size: 20px;
+  }
+
+  .chat-box {
+    max-height: 260px;
+    overflow-y: auto;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 4px;
+  }
+  .chat-box::-webkit-scrollbar {
+    width: 4px;
+  }
+  .chat-box::-webkit-scrollbar-thumb {
+    background: #a5d6a7;
+    border-radius: 4px;
+  }
+  .msg {
+    max-width: 85%;
+    padding: 10px 14px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.6;
+    word-break: break-word;
+  }
+  .msg.user {
+    background: #43a047;
+    color: #fff;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+  }
+  .msg.bot {
+    background: #e8f5e9;
+    color: #333;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+  }
+  .msg.bot.streaming {
+    background: #f1f8e9;
+    border-left: 3px solid #43a047;
+  }
+  .chat-input-row {
+    display: flex;
+    gap: 8px;
+  }
+  .chat-input-row input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .chat-input-row input:focus {
+    border-color: #43a047;
+  }
+  .chat-input-row button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #43a047, #2e7d32);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+  .chat-input-row button:hover {
+    opacity: 0.9;
+  }
+  .chat-input-row button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .nav-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 14px 6px;
+    border-radius: 16px;
+    background: #f1f8e9;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 13px;
+    color: #333;
+  }
+  .nav-item .emoji {
+    font-size: 28px;
+  }
+  .nav-item.active {
+    border-color: #43a047;
+    background: #e8f5e9;
+  }
+  .nav-item:hover {
+    background: #dcedc8;
+  }
+  .place-detail {
+    display: none;
+    animation: fadeUp 0.3s ease;
+  }
+  .place-detail.active {
+    display: block;
+  }
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .place-detail h3 {
+    font-size: 16px;
+    color: #1b5e20;
+    margin-bottom: 6px;
+  }
+  .place-detail p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+  .placeholder-img {
+    width: 100%;
+    height: 180px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    color: #388e3c;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .date-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .date-row input[type="date"] {
+    flex: 1;
+    padding: 9px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .date-row input[type="date"]:focus {
+    border-color: #43a047;
+  }
+  .date-row button {
+    padding: 9px 20px;
+    background: linear-gradient(135deg, #43a047, #2e7d32);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .date-row button:hover {
+    opacity: 0.9;
+  }
+  .course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .course-item {
+    padding: 12px 14px;
+    background: #f1f8e9;
+    border-radius: 14px;
+    border-left: 4px solid #43a047;
+  }
+  .course-item .session {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 4px;
+  }
+  .course-item .name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1b5e20;
+  }
+  .course-item .meta {
+    font-size: 13px;
+    color: #777;
+    margin-top: 3px;
+    line-height: 1.5;
+  }
+  .course-item .meta span {
+    margin-right: 10px;
+  }
+  .empty-state {
+    text-align: center;
+    color: #aaa;
+    padding: 24px 0;
+    font-size: 14px;
+  }
+
+  /* 校园生活场景样式 */
+  .life-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .life-item {
+    padding: 16px 12px;
+    background: #f1f8e9;
+    border-radius: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .life-item:hover {
+    background: #dcedc8;
+    transform: translateY(-2px);
+  }
+  .life-item .emoji {
+    font-size: 32px;
+    margin-bottom: 6px;
+  }
+  .life-item .title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1b5e20;
+  }
+  .life-detail {
+    margin-top: 12px;
+    padding: 12px;
+    background: #e8f5e9;
+    border-radius: 12px;
+  }
+  .life-detail h4 {
+    font-size: 15px;
+    color: #1b5e20;
+    margin-bottom: 6px;
+  }
+  .life-detail p {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 999;
+  }
+  .toast.show {
+    opacity: 1;
+  }
+</style>
