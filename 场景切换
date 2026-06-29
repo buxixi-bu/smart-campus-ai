@@ -1,0 +1,114 @@
+    // ========== 场景切换逻辑 ==========
+    document.querySelectorAll('.scene-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        // 切换标签激活状态
+        document.querySelectorAll('.scene-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        // 切换场景容器
+        const sceneId = 'scene-' + tab.dataset.scene;
+        document.querySelectorAll('.scene-container').forEach(scene => {
+          scene.classList.remove('active');
+        });
+        document.getElementById(sceneId).classList.add('active');
+      });
+    });
+
+    // ========== 校园导航逻辑（原有） ==========
+    document.querySelectorAll('.nav-item').forEach(el => {
+      el.addEventListener('click', () => {
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        el.classList.add('active');
+        document.querySelectorAll('.place-detail').forEach(d => d.classList.remove('active'));
+        document.getElementById('detail-' + el.dataset.place).classList.add('active');
+      });
+    });
+
+    // ========== 校园生活场景逻辑（新增） ==========
+    document.querySelectorAll('.life-item').forEach(item => {
+      item.addEventListener('click', () => {
+        // 隐藏所有详情
+        document.querySelectorAll('.life-detail').forEach(detail => {
+          detail.style.display = 'none';
+        });
+        // 显示当前选中的详情
+        const detailId = 'life-' + item.dataset.life;
+        document.getElementById(detailId).style.display = 'block';
+      });
+    });
+
+    // ========== 课程查询逻辑（原有） ==========
+    const datePicker = document.getElementById('datePicker');
+    const courseList = document.getElementById('courseList');
+    const queryBtn = document.getElementById('queryBtn');
+
+    const today = new Date();
+    datePicker.value = today.toISOString().slice(0, 10);
+
+    function renderCourses(dateStr) {
+      const d = new Date(dateStr);
+      const courses = courseDataByWeekday[d.getDay()];
+      if (!courses || courses.length === 0) {
+        courseList.innerHTML = '<div class="empty-state">🌤️ 今天没课，放松一下吧！</div>';
+        return;
+      }
+      courseList.innerHTML = courses.map(c => `
+        <div class="course-item">
+          <div class="session">${c.session}</div>
+          <div class="name">${c.name}</div>
+          <div class="meta">
+            <span>👨‍🏫 ${c.teacher}</span>
+            <span>📍 ${c.room}</span>
+            <span>📅 ${c.weeks}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    queryBtn.addEventListener('click', () => {
+      const val = datePicker.value;
+      if (!val) { showToast('请选择日期'); return; }
+      renderCourses(val);
+    });
+
+    renderCourses(datePicker.value);
+
+    // ========== Toast提示（原有） ==========
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2200);
+    }
+
+    // ========== 通用聊天模块（原有+扩展） ==========
+    class ChatModule {
+      constructor(boxId, inputId, btnId, demoReplies) {
+        this.box = document.getElementById(boxId);
+        this.input = document.getElementById(inputId);
+        this.btn = document.getElementById(btnId);
+        this.demoReplies = demoReplies;
+        this.history = [];
+
+        this.btn.addEventListener('click', () => this.send());
+        this.input.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') this.send();
+        });
+      }
+
+      addMsg(text, role) {
+        const div = document.createElement('div');
+        div.className = 'msg ' + role;
+        div.textContent = text;
+        this.box.appendChild(div);
+        this.box.scrollTop = this.box.scrollHeight;
+        return div;
+      }
+
+      async send() {
+        const text = this.input.value.trim();
+        if (!text) return;
+        this.input.value = '';
+
+        this.addMsg(text, 'user');
+        const botEl = this.addMsg('...', 'bot streaming');
