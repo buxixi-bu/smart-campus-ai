@@ -1,0 +1,54 @@
+        // 演示模式
+        const reply = this.demoReplies[Math.floor(Math.random() * this.demoReplies.length)];
+        let idx = 0;
+        botEl.textContent = '';
+        const type = () => {
+          if (idx < reply.length) {
+            botEl.textContent += reply[idx++];
+            this.box.scrollTop = this.box.scrollHeight;
+            setTimeout(type, 30);
+          } else {
+            botEl.classList.remove('streaming');
+          }
+        };
+        type();
+        return;
+      }
+    }
+
+    // 初始化4个聊天模块（原有3个+新增1个）
+    new ChatModule('chatBox1', 'input1', 'btn1', [
+      '你好！我是智慧树人校园助手，很高兴为你服务 😊',
+      '浙江树人学院成立于1984年，是浙江省首批民办高校之一 🎓',
+      '学校设有多个二级学院，涵盖工、文、经、管、艺术等学科门类。',
+      '校园社团活动丰富，每年有社团文化节、运动会、十佳歌手大赛！',
+      '图书馆藏书丰富，电子资源24小时开放，宿舍区也有自习室。',
+    ]);
+
+    new ChatModule('chatBox2', 'input2', 'btn2', [
+      '欢迎来到地点问答助手，你可以问我关于校园地点的问题 🗺️',
+      '图书馆每日 7:00–22:00 开放，刷校园卡入馆 📚',
+      '食堂三层：一楼大众餐饮，二楼风味小吃，三楼教工餐厅 🍱',
+      '教学楼 A、B、C 三栋由连廊贯通，自习室开放至 23:00 🏫',
+      '体育馆位于南门附近，内有篮球场、羽毛球场和游泳馆。',
+    ]);
+
+    new ChatModule('chatBox3', 'input3', 'btn3', [
+      '欢迎来到课程问答助手，你可以问关于课表的问题 📅',
+      '今天是 ' + weekNames[new Date().getDay()] + '，需要查什么课？',
+      '课程信息来源于智慧校园系统，每周更新。',
+      '如有调课通知，请以教务系统最新公告为准。',
+      '你可以问"今天有什么课"或"某门课在哪个教室"。',
+    ]);
+
+    // 新增校园生活聊天模块
+    new ChatModule('chatBox4', 'input4', 'btn4', [
+      '欢迎来到校园生活助手，有任何生活相关问题都可以问我 🏡',
+      '宿舍门禁时间是23:00，热水供应时间为7:00-23:00 🛏️',
+      '快递中心位于南门西侧，营业时间9:00-21:00 📦',
+      '校医务室在行政楼1楼，门诊时间8:00-12:00、14:00-18:00 🏥',
+      '体育中心健身房需凭校园卡进入，开放时间8:00-22:00 🏃',
+    ]);
+  </script>
+</body>
+</html>
